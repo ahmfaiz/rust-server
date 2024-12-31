@@ -60,9 +60,6 @@ You can modify the following:
 - **Thread Pool Size**: Adjust the number of threads in the pool by changing the parameter in `ThreadPool::new` in `main.rs`.
 - **Listening Address**: Change the address and port in `TcpListener::bind`.
 
-## License
-This project is open-source and available under the MIT License. See the `LICENSE` file for more details.
-
 ## Acknowledgements
 - Inspired by the Rust book's section on multi-threaded servers.
 - Special thanks to the Rust community for their excellent documentation and resources.
