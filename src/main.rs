@@ -3,14 +3,19 @@ use std::{
     io::{prelude::*, BufReader},
     net::{TcpListener, TcpStream}
 };
+use rust_server::ThreadPool;
 
 fn main() {
     let socket = TcpListener::bind("127.0.0.1:9001").unwrap();
+    let pool = ThreadPool::new(4);
 
     for stream in socket.incoming() {
         let stream = stream.unwrap();
         println!("Connection recieved");
-        handle_connection(stream);
+        
+        pool.execute(|| {
+            handle_connection(stream);
+        });
     }
 }
 
